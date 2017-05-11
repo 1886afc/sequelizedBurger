@@ -1,45 +1,15 @@
-var express = require("express");
-//importing from burger.js
-var burger = require("../models/burger.js")
+//requiring our todo model
 
-var router = express.Router();
+var db = require("../models");
 
-router.get("/", function (req, res) {
-	res.redirect("/burgers");
-});
 
-router.get("/burgers", function (req, res) {
-    
-    burger.selectAll(function (data) {
-    	//test
-        console.log(data);
-        var hbsObject = {
-            burgers: data
-        };
-        //test
-        //console.log("hbsObject " + JSON.stringify(hbsObject));
-        res.render("index", hbsObject);
-    });
-});
-
-router.post("/", function (req, res) {
-    burger.insertOne([
-            "burger_name"
-        ],
-        [
-            req.body.name
-        ], function() {
-            res.redirect("/burgers")
+// routes for displaying and posting data
+module.exports = function(app) {
+    app.get("/burgers", function(req, res) {
+        db.Burger.findAll({})
+            .then(function(dbBurger) {
+                res.json(dbBurger);
         });
-
-});
-
-router.put("/:id", function (req, res) {
-    burger.updateOne(req.params.id, function () {
-        res.redirect("/burgers");
     });
-});
 
-
-
-module.exports = router;
+};

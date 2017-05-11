@@ -1,5 +1,5 @@
 ### database schema
-CREATE DATABASE `burgers_db`;
+CREATE DATABASE `burgers_seq`;
 USE burgers_db;
 
 CREATE TABLE `burgers`
