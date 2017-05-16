@@ -12,7 +12,7 @@ if (process.env.JAWSDB_URL) {
         database: "burger_seq"
     });
 
-}
+};
 
 
 // Make connection
