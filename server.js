@@ -13,7 +13,7 @@ var app = express();
 var PORT = process.env.PORT || 3500;
 
 // Requiring our models for syncing
-var db = require("./models");
+var db = require("./models/");
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
@@ -22,7 +22,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Static directory
-app.use(express.static(process.cwd() + "/public"));
+app.use(express.static(process.cwd() + "/public/"));
 // enable method override
 app.use(methodOverride("_method"));
 // Set Handlebars.

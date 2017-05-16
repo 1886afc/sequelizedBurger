@@ -1,5 +1,5 @@
 
-CREATE DATABASE IF NOT EXISTS burgerseq_db;
+CREATE DATABASE IF NOT EXISTS burger_seq;
  USE burgerseq_db;
  
  # If the table already exists, remove it before trying to create the table again
